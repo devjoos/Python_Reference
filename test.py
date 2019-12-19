@@ -1,14 +1,18 @@
-class User():
-    def __init__(self, email):
-        self.email = email
+class PlayerCharacter():
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
 
-    def sign_in(self):
-        print('logged in')
+    def _speak(self):
+        print(F'hello my name is {self._name} and I am {self._age} years old')
 
 
-class Wizard(User):
-    def __init__(self, name, power, email):
-        self.name = name
-        self.power = power
+class TestThis(PlayerCharacter):
+    pass
 
-    def attack(self):
+
+player1 = PlayerCharacter("jimmy", 32)
+test1 = TestThis("dik", 33)
+print(test1._name)
+
+player1._speak()

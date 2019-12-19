@@ -1,4 +1,4 @@
-class User(object):
+class User():
     def sign_in(self):
         print('you are signed in')
 
@@ -7,9 +7,7 @@ class User(object):
 
 
 class Wizard(User):
-    def __init__(self, name, power, email):
-        super().__init__(email)
-        # User.__init__(self, email) - could also do this, but super() is cleaner
+    def __init__(self, name, power):
         self._name = name
         self._power = power
 
@@ -24,22 +22,33 @@ class Archer(User):
         self._arrows = arrows
 
     def attack(self):
-        super().attack()  # still dont know why we would do this
+        User.attack(self)  # still dont know why we would do this
         print(
             f'They call me {self._name}, my arrow struck you. My arrow count is now: {self._arrows}')
 
-
-wizard1 = Wizard('Merlin', 50, 'sam@sam.com')
-archer1 = Archer('Robin', 30)
-print(dir(wizard1))
+    def run(self):
+        print('run really fast')
 
 
-def player_attack(char):  # polymorphism
-    char.attack()
+class HybridBorg(Wizard, Archer):
+    def __init__(self, _name, power, arrows):
+        Archer.attack(self)
+
+
+hb1 = HybridBorg('Jerry', 132, 99)
+print(hb1._arrows)
+
+
+# wizard1 = Wizard('Merlin', 50)
+# archer1 = Archer('Robin', 30)
+
+
+# def player_attack(char):  # polymorphism
+#     char.attack()
 
 
 # # player_attack(wizard1)
-player_attack(archer1)
+# # player_attack(archer1)
 
 # for char in [wizard1, archer1]:
 #     char.attack()
