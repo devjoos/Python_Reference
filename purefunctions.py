@@ -1,4 +1,4 @@
-map
+map()
 
 
 def multply_by2(li):
