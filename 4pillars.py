@@ -22,7 +22,8 @@ class Archer(User):
         self._arrows = arrows
 
     def attack(self):
-        User.attack(self)  # still dont know why we would do this
+        super().attack()
+        # User.attack(self)
         print(
             f'They call me {self._name}, my arrow struck you. My arrow count is now: {self._arrows}')
 
