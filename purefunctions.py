@@ -22,7 +22,7 @@ def accumulator(acc, item):
     return acc + item
 
 
-print(list(map(multiply_by2, my_list)))
+# print(list(map(multiply_by2, my_list)))
 odd_list = list(filter(only_odd, my_list))
 zip_list = list(zip(my_list, your_list, my_set))
 reduced = reduce(accumulator, my_list, 0)
@@ -33,3 +33,9 @@ reduced = reduce(accumulator, my_list, 0)
 print(reduced)
 # new_list = 12
 # print(multiply_by2([1, 2, 3]))
+
+# lambda
+print(list(map(lambda item: item*2, my_list)))
+print(my_list)
+print(list(filter(lambda item: item % 2 != 0, my_list)))
+print(reduce(lambda acc, item: acc+item, my_list))
